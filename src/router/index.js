@@ -6,6 +6,9 @@ import Login from '@/components/Login'
 import Master from '@/components/Master'
 import Logout from '@/components/Logout'
 
+
+import post_edit from '@/components/Posts/edit'
+
 Vue.use(Router)
 
 export default new Router({
@@ -14,7 +17,12 @@ export default new Router({
       path: '/', component: Master,
       children: [
         { path: '/', component: Home , name:"Home"},
-        { path: 'logout',component: Logout }
+        { path: 'logout',component: Logout },
+        {
+          path: '/post/edit/:id',
+          component: post_edit,
+          name:'post.edit'
+        }
       ],
       meta: { requiresAuth: true }
     },

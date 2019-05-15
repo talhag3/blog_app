@@ -4,6 +4,8 @@ const urls = {
     LOGOUT:process.env.API_URL+'logout',
     SAVE_POST:process.env.API_URL+'posts/create',
     GET_POSTS:process.env.API_URL+'posts',
+    GET_POST:process.env.API_URL+'posts/',
+    EDIT_POST:process.env.API_URL+'posts/edit/'
 }
 
 export default urls;
