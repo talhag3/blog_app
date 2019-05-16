@@ -21,6 +21,7 @@ export default {
      },
      mounted(){
           this.$root.$on('post-created', this.pushPost);
+          this.$root.$on('post-deleted', this.postDelete);
           this.getPosts();
      },
      methods:{
@@ -44,6 +45,23 @@ export default {
           },
           pushPost(post){
                this.posts.unshift(post);
+          },
+          postDelete(post_id){
+               axios({
+        			method: "get",
+        			url: this.API.DELETE_POST+post_id,
+        			headers: this.HEADER()
+      		})
+        		.then(res => {
+				if(res.data.status==200){
+                         this.posts= this.posts.filter( p => p.id !==post_id);
+				}else{
+					console.warn("ERROR")					
+				}
+        		})
+        		.catch(err => {
+          		console.log(err);
+        		});
           }
      }
 }

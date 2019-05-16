@@ -8,7 +8,9 @@
                          <li class="list-group-item">
                               <router-link :to="{name: 'post.edit' , params : {id:post.id}}" >Edit</router-link>
                          </li>
-                         <li class="list-group-item">Delete</li>
+                         <li class="list-group-item">
+                              <a href="javascript:void(0)" v-on:click="postDelete(post.id)">Delete</a>
+                         </li>
                     </ul>
                </div>
           </div>
@@ -33,7 +35,9 @@ export default {
           
      },
      methods:{
-          
+          postDelete(post_id){
+               this.$root.$emit('post-deleted', post_id);
+          }
      }
 }
 </script>
