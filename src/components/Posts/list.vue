@@ -2,8 +2,10 @@
      <div class="row justify-content-md-center">
           <div class=" col-md-6">
                <post_list_card v-for="post in posts" :key="post.id" :post="post"></post_list_card>
+               <a href="javascript:void(0)" v-if="pagination.next_page_url" class="btn btn-sm btn-default" v-on:click="getPosts(pagination.next_page_url)">Load</a>
           </div>
      </div>
+
 </template>
 
 <script>
@@ -16,7 +18,8 @@ export default {
      },
      data () {
           return {
-               posts:[]
+               posts:[],
+               pagination:{}
           }
      },
      mounted(){
@@ -25,16 +28,18 @@ export default {
           this.getPosts();
      },
      methods:{
-          getPosts(){
+          getPosts(next_url=""){
                let vm = this;
+               const url = next_url || this.API.GET_POSTS;
                axios({
         			method: "get",
-        			url: this.API.GET_POSTS,
+        			url: url,
         			headers: this.HEADER()
       		})
         		.then(res => {
 				if(res.data.status==200){
-                         vm.posts = res.data.result
+                         vm.posts = vm.posts.concat(res.data.result.posts)
+                         vm.pagination = res.data.result.pagination
 				}else{
 					console.warn("ERROR")					
 				}

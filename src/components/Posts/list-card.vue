@@ -4,7 +4,9 @@
                <span v-on:click="post_card_menu=!post_card_menu">...</span>
                <div class="post-card-menu" v-if="post_card_menu">
                     <ul class="list-group"> 
-                         <li class="list-group-item">View</li>
+                         <li class="list-group-item">
+                              <router-link :to="{name: 'post.view' , params : {id:post.id}}" >View</router-link>
+                         </li>
                          <li class="list-group-item">
                               <router-link :to="{name: 'post.edit' , params : {id:post.id}}" >Edit</router-link>
                          </li>

@@ -8,6 +8,7 @@ import Logout from '@/components/Logout'
 
 
 import post_edit from '@/components/Posts/edit'
+import full_post from '@/components/Posts/full'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
           path: '/post/edit/:id',
           component: post_edit,
           name:'post.edit'
+        },
+        {
+          path: '/post/:id',
+          component: full_post,
+          name:'post.view'
         }
       ],
       meta: { requiresAuth: true }

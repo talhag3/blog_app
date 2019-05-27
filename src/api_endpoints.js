@@ -6,7 +6,9 @@ const urls = {
     GET_POSTS:process.env.API_URL+'posts',
     GET_POST:process.env.API_URL+'posts/',
     EDIT_POST:process.env.API_URL+'posts/edit/',
-    DELETE_POST:process.env.API_URL+'posts/delete/'
+    DELETE_POST:process.env.API_URL+'posts/delete/',
+    LIKE_POST:process.env.API_URL+'post_like/',
+    UNLIKE_POST:process.env.API_URL+'post_unlike/'
 }
 
 export default urls;
