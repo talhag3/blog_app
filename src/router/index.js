@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import Master from '@/components/Master'
 import Logout from '@/components/Logout'
 
+import Messanger from '@/components/Messanger/Messanger';
 
 import post_edit from '@/components/Posts/edit'
 import full_post from '@/components/Posts/full'
@@ -27,6 +28,11 @@ export default new Router({
         {
           path: '/post/:id',
           component: full_post,
+          name:'post.view'
+        },
+        {
+          path: '/messanger',
+          component: Messanger,
           name:'post.view'
         }
       ],

@@ -45,6 +45,7 @@ export default {
       		})
         		.then(res => {
 				if(res.data.status==200){
+					localStorage.setItem('auth_user',res.data.user_id);
 					this.saveToken(res.data.api_token);
 					this.$router.push({ name: "Home"})
 				}else{

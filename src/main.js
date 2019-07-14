@@ -26,6 +26,7 @@ Vue.prototype.saveToken = function(api_token){
 
 Vue.prototype.destroyToken = function(){
   localStorage.removeItem("api_token")
+  localStorage.removeItem("auth_user")
 }
 
 router.beforeEach((to, from, next) => {
